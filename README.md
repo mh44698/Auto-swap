@@ -14,15 +14,14 @@ The github repo is at the following location.
 
 ## Components
 
-- Header -- Provide the user with links to create, browse, about us and back to home throughout the application. 
-- Home -- The landing page for the application.  Presents the user with a browse the existing ideas or create a new one.
--	TitleView --  A place to view all of the existing ideas. From here the user can add, update, or delete an idea.
-- FullCard -- Present the user with the full details of the idea.
--	Create --	Provide the user a place to add a new idea to the site.
--	Update -- Allow the user to update an existing idea. 	 
--	Delete -- Allow the user to delete an idea.  
--	Login - Allows the user to create a user ID and password and then login 
-- About Us -- Give an explaination of the site.
+- Header -- Provide links to the various pages.
+- Home -- The Cars listing page.
+-	view Cars -- The Car listing page.
+- View Sellers -- The Seller listing page.
+-	Car Detail --	Provide the detail view of an individual car.
+-	Seller Detail -- Provide the detail view of the seller and a list of cars they currenlty have on the site.
+-	Create/Update -- Allows a user to create and or update a car or a seller.
+-	Delete - Allows a user to delete a car or a seller from the site.
 
 
 
@@ -33,7 +32,8 @@ Clone the code from the GitHub repositories above.
 		> python3 -m venv .env
 		> source .env/bin/activate
 
-	Install Django and pyscopg2-binary
+	Install Django and pyscopg2-binary and Pillow
+		Installed Pillow to help with the image uplader.
 
 	The database you will need to create locally is:
 		DATABASES = {
@@ -50,6 +50,29 @@ The models are created for you and there is a migration file with seed data that
 	
 	-	0001_initial.py
 	-	0002_auto_20200211_1726.py
+
+
+WIP
+Working on linking a css view to enhance the styling
+	-	Started the the css file with some formating and sytling
+	
+working on implementing an image uploader for the individual cars
+	I was able to get an image to show up if the image URL was in the database however; when I tried to add a new one it was not accepting the url format.  Due to this I started looking into creating an image uploaded.  I have a form created called upload_pic.hmtl.  Add the imageuploader in the forms.py file and added a path to the urls.py file and created a view.  However, the view is not render the form properly.  I used the following site as a reference:
+
+###
+-	[https://www.programcreek.com/python/example/52376/django.http.HttpResponseForbidden]()
+-	[https://coderwall.com/p/bz0sng/simple-django-image-upload-to-model-imagefield]()
+
+I used this site up update the database model to a URLField type:
+- [https://docs.djangoproject.com/en/dev/ref/models/fields/#imagefield]()
+
+
+
+Future
+Would like to add social athentication 
+Limit user permission on create and edit pages
+Would need to create a record after they have a user created and they would only be able to edit their own pages.
+
 
 
 ## Code Snippet

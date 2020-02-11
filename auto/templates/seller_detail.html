@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="seller">
-    {% for seller in seller.sellers.all %}
-    <h2>{{seller.name}}</h2>
-    <img src="{{seller.image_url}}" alt="">
-    <form action="/seller/{{seller.id}}/delete" method="POST">
-      {% csrf_token %}
-      <input type="submit" value="Delete {{seller.name}}">
-    </form>
-    <a href="/seller/{{seller.id}}/edit"> Edit {{seller.name}} </a>
+
+  <div>
+   
+    <span>{{ seller.name }}<img src="{{seller.logo}}" alt="logo of {{seller.name}}"/></span>
+    <p>{{seller.address}}</p>
+    <p>{{seller.phone}}</p>
+    <a href="{{ seller.web_site }}">Lujack.com</a>
+    <br>
+    <br>
+    
+    {% for car in seller.car.all %}
+    <h2><a href="/car/{{car.id}}">{{car.model}}</a></h2>
     {% endfor %}
     <footer>
       <a href="/seller/{{seller.id}}/edit"> Edit {{seller.name}} </a>

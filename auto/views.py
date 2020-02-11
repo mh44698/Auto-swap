@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Car, Seller
-from .forms import CarForm, SellerForm
+from .forms import CarForm, SellerForm, ImageUploadForm
+from django.http import HttpResponseForbidden
 
 def seller_list(request):
     sellers = Seller.objects.all()
@@ -69,3 +70,17 @@ def car_delete(request, id):
     #if request.method == 'POST':
     Car.objects.get(id = id).delete()
     return redirect('car_list')
+
+
+def upload_pic(request):
+    if request.method == 'POST':
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid:
+            # car = Car.objects.get(id=id)
+            car.img_url = form.cleaned_data['image']
+            car=form.save()
+            # return redirect('car_detail', id = car.id)
+            return HttpResponse('image upload success')
+    return HttpResponseForbidden('allowed only via POST')
+
+
