@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="car">
+      <h2><a href="/cars/{{car.id}}">{{car.name}}</a></h2>
+      <img src="{{car.image_url}}" alt="Picture of {{car.name}}"/>
+  </div>
+  <p>
+    <a href="/cars/{{car.id}}/edit"> Edit {{car.name}} </a>
+  </p>
+  <form action="/cars/{{car.id}}/delete" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Delete {{car.name}}">
+  </form>
+{% endblock %}
