@@ -37,6 +37,7 @@ def seller_delete(request, id):
     return redirect('seller_list')
 
 def car_list(request):
+<<<<<<< HEAD
     cars = Car.objects.all()
     return render(request, 'car_list.html', {'cars': cars})
 
@@ -69,3 +70,7 @@ def car_delete(request, id):
     if request.method == 'POST':
         Car.objects.get(id = id).delete()
     return redirect('car_list')
+=======
+    car = Car.objects.all()
+    return render(request, 'car_list.html', {'car': car})
+>>>>>>> mike
