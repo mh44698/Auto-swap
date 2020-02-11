@@ -10,7 +10,7 @@ def seller_detail(request, id):
     seller = Seller.objects.get(id = id)
     return render(request, 'seller_detail.html', {'seller': seller})
 
-def seller_create(response):
+def seller_create(request):
     if request.method == 'POST':
         form = SellerForm(request.POST)
         if form.is_valid:
@@ -32,12 +32,11 @@ def seller_update(request, id):
         return render(request, 'seller_form.html', {'form': form})
 
 def seller_delete(request, id):
-    if request.method == 'POST':
-        Seller.objects.get(id = id).delete()
+    #if request.method == 'POST':
+    Seller.objects.get(id = id).delete()
     return redirect('seller_list')
-
+##########################   Car 
 def car_list(request):
-<<<<<<< HEAD
     cars = Car.objects.all()
     return render(request, 'car_list.html', {'cars': cars})
 
@@ -58,7 +57,7 @@ def car_create(request):
 def car_update(request, id):
     car = Car.objects.get(id = id)
     if request.method == 'POST':
-        form = CarForm(request.body, instance = car)
+        form = CarForm(request.POST, instance = car)
         if form.is_valid:
             car = form.save()
             return redirect('car_detail', id = car.id)
@@ -67,10 +66,6 @@ def car_update(request, id):
         return render(request, 'car_form.html', {'form': form})
 
 def car_delete(request, id):
-    if request.method == 'POST':
-        Car.objects.get(id = id).delete()
+    #if request.method == 'POST':
+    Car.objects.get(id = id).delete()
     return redirect('car_list')
-=======
-    car = Car.objects.all()
-    return render(request, 'car_list.html', {'car': car})
->>>>>>> mike

@@ -2,14 +2,14 @@
 
 {% block content %}
   <div class="car">
-      <h2><a href="/cars/{{car.id}}">{{car.name}}</a></h2>
-      <img src="{{car.image_url}}" alt="Picture of {{car.name}}"/>
+      <h2><a href="/car/{{car.id}}">{{car.model}}</a></h2>
+      <img src="{{car.image_url}}" alt="Picture of {{car.model}}"/>
   </div>
   <p>
-    <a href="/cars/{{car.id}}/edit"> Edit {{car.name}} </a>
+    <a href="/car/{{car.id}}/edit"> Edit {{car.model}} </a>
   </p>
-  <form action="/cars/{{car.id}}/delete" method="POST">
+  <form action="/car/{{car.id}}/delete" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Delete {{car.name}}">
+    <input type="submit" value="Delete {{car.model}}">
   </form>
 {% endblock %}

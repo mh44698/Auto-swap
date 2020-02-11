@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="car">
-    {% for car in car.cars.all %}
-    <h2>{{car.name}}</h2>
-    <img src="{{car.image_url}}" alt="">
-    <form action="/cars/{{car.id}}/delete" method="POST">
+  <div class="seller">
+    {% for seller in seller.sellers.all %}
+    <h2>{{seller.name}}</h2>
+    <img src="{{seller.image_url}}" alt="">
+    <form action="/seller/{{seller.id}}/delete" method="POST">
       {% csrf_token %}
-      <input type="submit" value="Delete {{car.name}}">
+      <input type="submit" value="Delete {{seller.name}}">
     </form>
-    <a href="/cars/{{car.id}}/edit"> Edit {{car.name}} </a>
+    <a href="/seller/{{seller.id}}/edit"> Edit {{seller.name}} </a>
     {% endfor %}
     <footer>
-      <a href="/cars/{{car.id}}/edit"> Edit {{car.name}} </a>
-      <form action="/cars/{{car.id}}/delete">
+      <a href="/seller/{{seller.id}}/edit"> Edit {{seller.name}} </a>
+      <form action="/seller/{{seller.id}}/delete">
         {% csrf_token %}
-        <input type="submit" value="Delete {{car.name}}">
+        <input type="submit" value="Delete {{seller.name}}">
       </form>
     </footer>
   </div>

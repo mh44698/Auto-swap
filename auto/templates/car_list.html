@@ -4,12 +4,13 @@
   <h1> Cars </h1>
   {% for car in cars %}
     <div class="car">
-      <h2><a href="/cars/{{car.id}}">{{car.name}}</a></h2>
-      <img src="{{car.image_url}}" alt="Picture of {{car.name}}"/>
+      <h2><a href="/car/{{car.id}}">{{car.make}}</a></h2>
+      <img src="{{car.image_url}}" alt="Picture of {{car.model}}"/><br>
+      {{ car.milage }}
     </div>
-    <form action="/cars/{{car.id}}/delete" method="POST">
+    <!-- <form action="/car/{{car.id}}/delete" method="POST"></form>
       {% csrf_token %}
-      <input type="submit" value="Delete {{car.name}}">
+      <input type="submit" value="Delete {{car.model}}"> -->
     </form>
   {% endfor %}
 {% endblock %}
