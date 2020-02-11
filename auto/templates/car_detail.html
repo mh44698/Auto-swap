@@ -2,8 +2,10 @@
 
 {% block content %}
   <div class="car">
-      <h2><a href="/car/{{car.id}}">{{car.model}}</a></h2>
-      <img src="{{car.image_url}}" alt="Picture of {{car.model}}"/>
+      <h2>{{car.make}} {{car.model}} {{car.trim}}</h2>
+      <h3>Color: {{car.color}}</h3>
+      <h3>Milage: {{car.milage}}</h3>
+      <img src="{{car.img_url}}" alt="Picture of {{car.model}}"/>
   </div>
   <p>
     <a href="/car/{{car.id}}/edit"> Edit {{car.model}} </a>

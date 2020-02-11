@@ -4,9 +4,10 @@
   <h1> Cars </h1>
   {% for car in cars %}
     <div class="car">
-      <h2><a href="/car/{{car.id}}">{{car.make}}</a></h2>
-      <img src="{{car.image_url}}" alt="Picture of {{car.model}}"/><br>
+      <h2><a href="/car/{{car.id}}">{{car.model}}</a></h2>
+      <img src="{{car.img_url}}" alt="Picture of {{car.model}}"/><br>
       {{ car.milage }}
+    
     </div>
     <!-- <form action="/car/{{car.id}}/delete" method="POST"></form>
       {% csrf_token %}
