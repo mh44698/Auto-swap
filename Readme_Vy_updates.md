@@ -47,6 +47,11 @@ In the form.html, include enctype
 </form>
 ```
 
+Image should be in static/media/ + upload_to(from Car model imageField)
+```
+In this case, it should be in static/media/pic_folder
+```
+
 Finally, in car_list, car_detail.html, add .url for the image
 ```
 before 
