@@ -39,6 +39,14 @@ Then add this at the end of the urlpattern_array
 + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
+Comment out all code related to upload route: uploadForm, upload in url, views.
+
+Add request.FILES in views
+```
+if request.method == 'POST':
+        form = CarForm(request.POST, request.FILES, instance = car)
+```
+
 In the form.html, include enctype
 ```
 <form method="POST" enctype='multipart/form-data'>
