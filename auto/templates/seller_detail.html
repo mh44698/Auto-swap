@@ -5,7 +5,11 @@
   <span>{{ seller.name }}</span>
   <p>{{seller.address}}</p>
   <p>{{seller.phone}}</p>
+  {% if 'http://' in seller.web_site %}
+  <a href="{{ seller.web_site }}">{{ seller.web_site }}</a>
+  {% else %}
   <a href="http://{{ seller.web_site }}">{{ seller.web_site }}</a>
+  {% endif %}
   <br />
   <br />
 
